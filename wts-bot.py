@@ -3,7 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import csv
 from datetime import time, date
-import pywhatkit
+
 
 def fecha_efemerides():
     today = date.today()
@@ -18,20 +18,25 @@ def trends_scrapper(URL):
     r = requests.get(URL)
     soup = BeautifulSoup(r.content, 'html.parser')
     """ soup = BeautifulSoup(r.content, 'html5lib') """
-    data = soup.find_all('li', class_ = 'trend-card')
+    data = soup.find_all('div', class_ = 'trend-card')
     contador = 0
     lista = []
     for i in data:
         if contador < 50:
-            lista.append(i)
+            lista.append(i.text)
         else:
             break
         contador += 1
     print(lista)
     global trends_texto
-    trends_mostrar = lista[0:5]
-    trends_texto = ' '.join(trends_mostrar)
-    print(trends_mostrar)
+
+
+
+
+
+
+    """ trends_mostrar = lista[0:5]
+    trends_texto = ' '.join(trends_mostrar) """
     """ print('[ʙᴏᴛ] ᴛᴏᴘ 5 ᴄʜɪʟᴇ ᴛʀᴇɴᴅɪɴɢ') """
 
 
@@ -66,4 +71,4 @@ def envia_mensaje(trends_texto):
     pywhatkit.playonyt("PyWhatKit") """
 #https://chat.whatsapp.com/KSWnhOCqnYR8kFVa7qMJ4y
 
-envia_mensaje(trends_texto)
+""" envia_mensaje(trends_texto) """
