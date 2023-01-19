@@ -47,9 +47,25 @@ def envia_mensaje(trends_texto):
     
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 fecha_efemerides()
 trends_scrapper()
-
+envia_mensaje()
 
 
 

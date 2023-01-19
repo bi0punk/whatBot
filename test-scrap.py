@@ -13,9 +13,7 @@ for x in section.find_next('ul').select('li > a:nth-child(1)'):
 
 
 
-""" print(Stars)
-
- """
+""" print(Stars)"""
 
 
 """ 
@@ -30,11 +28,7 @@ for x in section.find_next('ul').select('li > a:nth-of-type(1)'):
         Stars.append(x.get('title'))
         Stars.append(x.text)
         
-
-
-
 print(Stars)
-
 print(text)
 """
 
@@ -47,9 +41,6 @@ section = soup.find('ul', class_ = 'numeros').parent
 lista_trendings = []
 for x in section.find_next('ul').select('li'):
         lista_trendings.append(x.get('title'))
-
-
-""" print(section) """
 
 print('\n')
 print(lista_trendings)
