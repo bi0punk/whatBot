@@ -1,0 +1,17 @@
+Date: 19/1/2023
+Time: 13:52
+Group ID: BR1USpeswsw0JkhlSeu5GG
+Image: Images/Hello.png
+Caption: Hello
+--------------------
+Date: 19/1/2023
+Time: 13:54
+Group ID: BR1USpeswsw0JkhlSeu5GG
+Image: Images/Hello.png
+Caption: Hello
+--------------------
+Date: 19/1/2023
+Time: 13:59
+Group ID: BR1USpeswsw0JkhlSeu5GG
+Message: Hey All!
+--------------------

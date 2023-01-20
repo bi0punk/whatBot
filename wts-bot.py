@@ -40,21 +40,13 @@ def trends_scrapper():
 
 
 
-def envia_mensaje(trends_texto):
+def envia_mensaje():
     # Send a WhatsApp Message to a Contact at 1:30 PM
 
-    pywhatkit.sendwhatmsg("+56975423355", "hola", 20, 45)
+    """ pywhatkit.sendwhatmsg("+56975423355", "hola", 20, 45) """
+
+    pywhatkit.sendwhatmsg_to_group("BR1USpeswsw0JkhlSeu5GG", "Hey All!", 14, 00)
     
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -118,3 +110,5 @@ envia_mensaje()
 #https://chat.whatsapp.com/KSWnhOCqnYR8kFVa7qMJ4y
 
 """ envia_mensaje(trends_texto) """
+
+"""BR1USpeswsw0JkhlSeu5GG"""
