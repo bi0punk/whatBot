@@ -47,7 +47,7 @@ def envia_mensaje():
 
     pywhatkit.sendwhatmsg_to_group("GROUP ID", "Hey All!", 14, 00)
     
-    
+
 
 
 
@@ -110,5 +110,3 @@ envia_mensaje()
 #https://chat.whatsapp.com/KSWnhOCqnYR8kFVa7qMJ4y
 
 """ envia_mensaje(trends_texto) """
-
-"""BR1USpeswsw0JkhlSeu5GG"""
