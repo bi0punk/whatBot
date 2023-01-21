@@ -18,7 +18,6 @@ def fecha_efemerides():
     print(link)
 
 
-
 def trends_scrapper():
 
     URL = 'https://www.litoralpress.cl/sitio/trendings.cshtml'
@@ -29,7 +28,6 @@ def trends_scrapper():
     lista_trendings = []
     for x in section.find_next('ul').select('li'):
             lista_trendings.append(x.get('title'))
-    """ print(section) """
     print('\n')
     print(lista_trendings)
     print('\n')
