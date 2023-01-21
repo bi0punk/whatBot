@@ -37,16 +37,8 @@ def trends_scrapper():
 
 
 def envia_mensaje():
-    # Send a WhatsApp Message to a Contact at 1:30 PM
-
     pywhatkit.sendwhatmsg_to_group("GROUP ID", "Hey All!", 14, 00)
     
-
-
-
-
-
-
 
 
 fecha_efemerides()
@@ -77,6 +69,6 @@ envia_mensaje()
     pywhatkit.sendwhatmsg_to_group_instantly("AB123CDEFGHijklmn", "Hey All!")
     # Play a Video on YouTube
     pywhatkit.playonyt("PyWhatKit") """
-#https://chat.whatsapp.com/KSWnhOCqnYR8kFVa7qMJ4y
+
 
 """ envia_mensaje(trends_texto) """
