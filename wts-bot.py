@@ -30,20 +30,14 @@ def trends_scrapper():
     for x in section.find_next('ul').select('li'):
             lista_trendings.append(x.get('title'))
     """ print(section) """
-
     print('\n')
     print(lista_trendings)
-
     print('\n')
-
-
 
 
 
 def envia_mensaje():
     # Send a WhatsApp Message to a Contact at 1:30 PM
-
-    """ pywhatkit.sendwhatmsg("+56975423355", "hola", 20, 45) """
 
     pywhatkit.sendwhatmsg_to_group("GROUP ID", "Hey All!", 14, 00)
     
@@ -58,30 +52,6 @@ def envia_mensaje():
 fecha_efemerides()
 trends_scrapper()
 envia_mensaje()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
