@@ -45,9 +45,9 @@ def envia_mensaje():
 
     """ pywhatkit.sendwhatmsg("+56975423355", "hola", 20, 45) """
 
-    pywhatkit.sendwhatmsg_to_group("BR1USpeswsw0JkhlSeu5GG", "Hey All!", 14, 00)
+    pywhatkit.sendwhatmsg_to_group("GROUP ID", "Hey All!", 14, 00)
     
-
+    
 
 
 
