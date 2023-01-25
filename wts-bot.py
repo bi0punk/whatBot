@@ -21,24 +21,30 @@ def trends_scrapper():
     website_url = requests.get(URL).text   
     soup = BeautifulSoup(website_url,'lxml')
     section = soup.find('ul', class_ = 'numeros').parent
-
+    global lista_trendings
     lista_trendings = []
     for x in section.find_next('ul').select('li'):
             lista_trendings.append(x.get('title'))
     print('\n')
     print(lista_trendings)
+    global string_trending
+
+    string_trending = "-".join(lista_trendings)
+    print(string_trending)
+
+    print(*lista_trendings, sep = "\n")
     print('\n')
+    """ return (lista_trendings)"""
 
 
 
-def envia_mensaje():
-    pywhatkit.sendwhatmsg_to_group("GROUP ID", "Hey All!", 14, 00)
-    
+def envia_mensaje(lista_trendings):
+    pywhatkit.sendwhatmsg_to_group(f"BR1USpeswsw0JkhlSeu5GG",{lista_trendings[1]}, 23, 55)
 
 
 fecha_efemerides()
 trends_scrapper()
-envia_mensaje()
+envia_mensaje(lista_trendings)
 
 
 
