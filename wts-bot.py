@@ -5,15 +5,61 @@ import csv
 from datetime import time, date
 import pandas as pd
 import urllib.request
+import threading
+import time
+import urllib.request
+import pandas as pd
+import requests
+import datetime
 
-def fecha_efemerides():
+
+def generador_fechas():
+    #funcion para obtener el dia, mes y año y formar ellink correspondiente para la consulta
 
     today = date.today()
     print("año:", today.year)
     print("mes:", today.month)
     print("dia:", today.day)
+
+    a = len(str(today.month))
+    print(a)
+
+    if len(str(today.month)) == 1:
+        mes = '0'+str(today.month)
+        print(mes)
+    else:
+        mes = str(today.month)
+
+
+
     link = 'https://es.wikipedia.org/wiki/'+ str(today.day) + '_de_enero'
+    link_sismos = 'https://www.sismologia.cl/sismicidad/catalogo/' +str(today.year) + '/' +str(today.month) + '/' +str(today.year) +str(today.month) +str(today.day) + '.html'
     print(link)
+    print(link_sismos)
+
+
+def scraping_sismos():
+    while True:
+        table_MN = pd.read_html('https://www.sismologia.cl/sismicidad/catalogo/2022/12/20221226.html')
+        print(f'Total tables: {len(table_MN)}')
+        global df
+        df = table_MN[1]
+        
+        print(df)
+        """ df.to_csv('file_name.csv', encoding='utf-8') """
+        df.to_csv('datasismos.csv', mode='a', index=False, header=True, encoding='utf-8')
+        fecha_data = datetime.datetime.now()
+        print("\n")
+        print(fecha_data)
+        time.sleep(600)   # n segundos.
+        
+# Iniciar la ejecución en segundo plano.
+t = threading.Thread(target=scraping_sismos)
+t.start()
+
+
+
+
 
 def trends_scrapper():
 
@@ -39,13 +85,15 @@ def trends_scrapper():
 
 
 def envia_mensaje(lista_trendings):
-    pywhatkit.sendwhatmsg_to_group(f"BR1USpeswsw0JkhlSeu5GG",{lista_trendings[1]}, 23, 55)
+    pywhatkit.sendwhatmsg_to_group(f"KTDcC8Pe2XdLq1pgXEaKOj", "peo", 22, 33)
 
 
-fecha_efemerides()
+generador_fechas()
 trends_scrapper()
 envia_mensaje(lista_trendings)
 
+#KTDcC8Pe2XdLq1pgXEaKOj
+#I3PYrxw9eqFAXUELwcqJDU
 
 
 """ # Same as above but Closes the Tab in 2 Seconds after Sending the Message
