@@ -15,23 +15,18 @@ import datetime
 
 def generador_fechas():
     #funcion para obtener el dia, mes y año y formar ellink correspondiente para la consulta
-
+    global today
     today = date.today()
     print("año:", today.year)
     print("mes:", today.month)
     print("dia:", today.day)
-
     a = len(str(today.month))
     print(a)
-
     if len(str(today.month)) == 1:
         mes = '0'+str(today.month)
         print(mes)
     else:
         mes = str(today.month)
-
-
-
     link = 'https://es.wikipedia.org/wiki/'+ str(today.day) + '_de_enero'
     link_sismos = 'https://www.sismologia.cl/sismicidad/catalogo/' +str(today.year) + '/' +str(today.month) + '/' +str(today.year) +str(today.month) +str(today.day) + '.html'
     print(link)
@@ -40,7 +35,7 @@ def generador_fechas():
 
 def scraping_sismos():
     while True:
-        table_MN = pd.read_html('https://www.sismologia.cl/sismicidad/catalogo/2022/12/20221226.html')
+        table_MN = pd.read_html('https://www.sismologia.cl/sismicidad/catalogo/' +str(today.year) + '/' +str(today.month) + '/' +str(today.year) +str(today.month) +str(today.day) + '.html'')
         print(f'Total tables: {len(table_MN)}')
         global df
         df = table_MN[1]
