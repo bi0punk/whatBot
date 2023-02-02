@@ -5,10 +5,14 @@ import time
 
 class Timer(threading.Thread):
     def __init__(self):
+        #definimos atributo timer runs que seria la inicializacion del evento threa
         self._timer_runs = threading.Event()
         self._timer_runs.set()
         super().__init__()
+    
 
+
+    #funcion run que contrine eun ciclo while, mientras el timer este seteado inicar timer y duerme por n segundos donde n sera numero definido por susuario
     def run(self):
         while self._timer_runs.is_set():
             self.timer()
@@ -26,6 +30,8 @@ class TimerNumero1(Timer):
 
 
 hello_world_timer = TimerNumero1()
+
+otra_instancia = TimerNumero1()
 
 hello_world_timer.start()   
 
