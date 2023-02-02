@@ -1,7 +1,7 @@
 import cv2
 
 # capturing video
-capture = cv2.VideoCapture("http://192.168.88.18:81/stream")
+capture = cv2.VideoCapture("http://192.168.43.201:81/stream")
 
 while capture.isOpened():
     # to read frame by frame
