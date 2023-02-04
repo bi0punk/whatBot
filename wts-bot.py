@@ -9,7 +9,6 @@ import threading
 import time
 import urllib.request
 import pandas as pd
-import requests
 import datetime
 import emoji
 
@@ -28,24 +27,32 @@ def trends_scrapper():
     print('\n')
     print(lista_trendings)
     global string_trending
-
     string_trending = "\n".join(lista_trendings)
     print(string_trending)
     return string_trending
 
 
-def envia_mensaje(trends_scrapper):
+
+def envia_mensaje():
     global emoji
     emoji3 = "🔥"
+    print(emoji3)
     emoji2 = (emoji.emojize(":grinning_face_with_big_eyes:"))
     print(emoji.emojize(":winking_face_with_tongue:"))
     print(emoji.emojize(":zipper-mouth_face:"))
 
     title = "*Top 10 Trending Topic Chile*\n"
-    pywhatkit.sendwhatmsg_to_group(f"KTDcC8Pe2XdLq1pgXEaKOj",(emoji3)+(title)+(string_trending), 18, 56)
+    pywhatkit.sendwhatmsg_to_group(f"I3PYrxw9eqFAXUELwcqJDU",(emoji3)+"🔥"+(title)+(string_trending), 20, 2)
+
+
+
+
+
+
+
 
 
 """ generador_fechas() """
 trends_scrapper()
-envia_mensaje(lista_trendings)
+envia_mensaje()
 
