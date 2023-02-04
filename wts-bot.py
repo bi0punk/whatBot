@@ -42,7 +42,7 @@ def envia_mensaje():
     print(emoji.emojize(":zipper-mouth_face:"))
 
     title = "*Top 10 Trending Topic Chile*\n"
-    pywhatkit.sendwhatmsg_to_group(f"I3PYrxw9eqFAXUELwcqJDU",(emoji3)+"🔥"+(title)+(string_trending), 20, 2)
+    pywhatkit.sendwhatmsg_to_group(f"token",(emoji3)+"🔥"+(title)+(string_trending), 20, 2)
 
 
 
