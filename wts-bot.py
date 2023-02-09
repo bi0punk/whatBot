@@ -13,9 +13,7 @@ import datetime
 import emoji
 
 
-
 def trends_scrapper():
-
     URL = 'https://www.litoralpress.cl/sitio/trendings.cshtml'
     website_url = requests.get(URL).text   
     soup = BeautifulSoup(website_url,'lxml')
@@ -31,8 +29,6 @@ def trends_scrapper():
     print(string_trending)
     return string_trending
 
-
-
 def envia_mensaje():
     global emoji
     emoji3 = "🔥"
@@ -40,16 +36,8 @@ def envia_mensaje():
     emoji2 = (emoji.emojize(":grinning_face_with_big_eyes:"))
     print(emoji.emojize(":winking_face_with_tongue:"))
     print(emoji.emojize(":zipper-mouth_face:"))
-
     title = "*Top 10 Trending Topic Chile*\n"
-    pywhatkit.sendwhatmsg_to_group(f"token",(emoji3)+"🔥"+(title)+(string_trending), 20, 2)
-
-
-
-
-
-
-
+    pywhatkit.sendwhatmsg_to_group(f"token",(emoji3)+"🔥"+(title)+(string_trending), 8, 0)
 
 
 """ generador_fechas() """
