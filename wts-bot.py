@@ -40,7 +40,6 @@ def envia_mensaje():
     pywhatkit.sendwhatmsg_to_group(f"token",(emoji3)+"🔥"+(title)+(string_trending), 8, 0)
 
 
-""" generador_fechas() """
 trends_scrapper()
 envia_mensaje()
 
