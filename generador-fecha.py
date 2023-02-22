@@ -16,29 +16,32 @@ import datetime
 
 def generador_fechas():
 
-    
+    print("Ingrese fecha")
+    fecha_consultar = input()
     fecha_data = datetime.datetime.now()
 
-    dia = (fecha_data.year)
+    print(fecha_data)
+    anio = (fecha_data.year)
     mes = (fecha_data.strftime("%m"))
-    anio = (fecha_data.strftime("%y"))
+    """ anio = (fecha_data.strftime("%y")) """
+    dia = (fecha_data.strftime("%d"))
     print(anio)
     print(mes)
-    print(dia)
-
-    
-    link_sismos2 = f'https://www.sismologia.cl/sismicidad/catalogo/{(fecha_data.year)}/{(fecha_data.month)}/{(fecha_data.year)}{(fecha_data.month)}{(fecha_data.day)}.html'
+    global link_sismos2
+    link_sismos2 = f'https://www.sismologia.cl/sismicidad/catalogo/{(fecha_data.year)}/{(mes)}/{(fecha_data.year)}{(mes)}{(dia)}.html'
     print(link_sismos2)
+    return link_sismos2
 
 generador_fechas()
 
-
-
-
-
 def timer():
     while True:
-        table_MN = pd.read_html('https://www.sismologia.cl/sismicidad/catalogo/2022/12/20221226.html')
+        response= requests.get(link_sismos2)   
+        status= response.status_code
+        print(status)
+        table_MN = pd.read_html(link_sismos2)
+        
+
         print(f'Total tables: {len(table_MN)}')
         global df
         df = table_MN[1]
