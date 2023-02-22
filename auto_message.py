@@ -12,6 +12,7 @@ import datetime
 
 def timer():
     while True:
+        print("El link usado es: ")
         table_MN = pd.read_html('https://www.sismologia.cl/sismicidad/catalogo/2022/12/20221226.html')
         print(f'Total tables: {len(table_MN)}')
         global df
