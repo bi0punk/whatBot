@@ -13,20 +13,24 @@ import datetime
 
 
 
+# initializing date
+test_date = datetime.datetime.strptime("01-7-2022", "%d-%m-%Y")
+
+# initializing K
+K = 5
+
+date_generated = pd.date_range(test_date, periods=K)
+print(date_generated.strftime("%d-%m-%Y"))
+
 
 def generador_fechas():
 
-    print("Ingrese fecha")
+    print("Ingrese  de inicio")
     fecha_consultar = input()
     fecha_data = datetime.datetime.now()
-
-    print(fecha_data)
     anio = (fecha_data.year)
     mes = (fecha_data.strftime("%m"))
-    """ anio = (fecha_data.strftime("%y")) """
     dia = (fecha_data.strftime("%d"))
-    print(anio)
-    print(mes)
     global link_sismos2
     link_sismos2 = f'https://www.sismologia.cl/sismicidad/catalogo/{(fecha_data.year)}/{(mes)}/{(fecha_data.year)}{(mes)}{(dia)}.html'
     print(link_sismos2)
@@ -39,9 +43,12 @@ def timer():
         response= requests.get(link_sismos2)   
         status= response.status_code
         print(status)
+        if status == 403:
+            time.sleep(5000)
+            print("esperando")
+            return timer()
         table_MN = pd.read_html(link_sismos2)
         
-
         print(f'Total tables: {len(table_MN)}')
         global df
         df = table_MN[1]
@@ -57,4 +64,5 @@ def timer():
 # Iniciar la ejecución en segundo plano.
 t = threading.Thread(target=timer)
 t.start()
+
 
