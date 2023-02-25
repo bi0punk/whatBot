@@ -1,29 +1,29 @@
-
-import requests
-import csv
 from datetime import time, date
-import pandas as pd
 import urllib.request
+import pandas as pd
 import threading
-import time
-import urllib.request
-import pandas as pd
-import requests
 import datetime
+import requests
+import time
+import csv
 
 
 
-# initializing date
-test_date = datetime.datetime.strptime("01-7-2022", "%d-%m-%Y")
 
-# initializing K
-K = 5
-
-date_generated = pd.date_range(test_date, periods=K)
-print(date_generated.strftime("%d-%m-%Y"))
 
 
 def generador_fechas():
+    inicio = datetime.date(2021,12,10)
+    periods = 5
+    daterange = []
+    for day in range(periods):
+        date = (inicio + datetime.timedelta(days = day)).isoformat()
+        daterange.append(date)
+    """ print(daterange) """
+    print(type(daterange))
+    for i in daterange:
+        print(i)
+
 
     print("Ingrese  de inicio")
     fecha_consultar = input()
