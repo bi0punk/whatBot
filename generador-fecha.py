@@ -7,13 +7,8 @@ import requests
 import time
 import csv
 
-
-
-
-
-
 def generador_fechas():
-    inicio = datetime.date(2021,12,10)
+    inicio = datetime.date(2020,1,1)
     periods = 5
     daterange = []
     for day in range(periods):
@@ -21,12 +16,14 @@ def generador_fechas():
         daterange.append(date)
     """ print(daterange) """
     print(type(daterange))
+    print(daterange[0])
+
     for i in daterange:
-        print(i)
+        for j in daterange:
+            print(i[0:4])
+        print(j[5:7])
 
 
-    print("Ingrese  de inicio")
-    fecha_consultar = input()
     fecha_data = datetime.datetime.now()
     anio = (fecha_data.year)
     mes = (fecha_data.strftime("%m"))
@@ -53,7 +50,7 @@ def timer():
         global df
         df = table_MN[1]
         
-        print(df)
+        """ print(df) """
         """ df.to_csv('file_name.csv', encoding='utf-8') """
         df.to_csv('datasismos.csv', mode='a', index=False, header=True, encoding='utf-8')
         fecha_data = datetime.datetime.now()
