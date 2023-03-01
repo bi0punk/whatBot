@@ -7,6 +7,17 @@ import requests
 import time
 import csv
 
+
+# Python program to display calendar of
+# given month of the year
+
+
+def calendarios():
+    
+    dias = list(range(1, 32))
+
+    print(dias)
+
 def generador_fechas():
     inicio = datetime.date(2020,1,1)
     periods = 5
@@ -14,22 +25,22 @@ def generador_fechas():
     for day in range(periods):
         date = (inicio + datetime.timedelta(days = day)).isoformat()
         daterange.append(date)
-    """ print(daterange) """
-    print(type(daterange))
     print(daterange[0])
 
     for i in daterange:
-        for j in daterange:
-            print(i[0:4])
-        print(j[5:7])
-
-
-    fecha_data = datetime.datetime.now()
-    anio = (fecha_data.year)
+        print(i[0:4])
+    """ fecha_data = datetime.datetime.now()
     mes = (fecha_data.strftime("%m"))
-    dia = (fecha_data.strftime("%d"))
+    dia = (fecha_data.strftime("%d")) """
+    fecha_data= 2020
+    mes = 1
+    dia = 1
+    zzero = '0'
+    
     global link_sismos2
-    link_sismos2 = f'https://www.sismologia.cl/sismicidad/catalogo/{(fecha_data.year)}/{(mes)}/{(fecha_data.year)}{(mes)}{(dia)}.html'
+    link_sismos2 = f'https://www.sismologia.cl/sismicidad/catalogo/2020/01/202001{(zzero)}{(dia)}.html'
+    #link_sismos2 = f'https://www.sismologia.cl/sismicidad/catalogo/{(fecha_data)}/{(mes)}/{(fecha_data.year)}{(mes)}{(dia)}.html'
+
     print(link_sismos2)
     return link_sismos2
 
@@ -50,7 +61,7 @@ def timer():
         global df
         df = table_MN[1]
         
-        """ print(df) """
+        print(df)
         """ df.to_csv('file_name.csv', encoding='utf-8') """
         df.to_csv('datasismos.csv', mode='a', index=False, header=True, encoding='utf-8')
         fecha_data = datetime.datetime.now()
@@ -63,3 +74,4 @@ t = threading.Thread(target=timer)
 t.start()
 
 
+calendarios()
